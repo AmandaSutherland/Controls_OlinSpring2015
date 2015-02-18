@@ -40,6 +40,8 @@ void loop()
     }
     else if (outputValue > 128 ){
       outputValue = 128;   
+      
+      
     }
   
      // change the analog out value:

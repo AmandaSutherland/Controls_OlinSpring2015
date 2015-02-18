@@ -48,12 +48,13 @@ def plot_dataset(data, title):
 
 
 def main():
-    tests = {'ice_test': 'Ice Disturbance'}
+    tests = {'touch_test': 'Ice Disturbance'}
             # 'test':'Test Data',
             #'roomT_to_goal': 'Running from No Input'
             #'above_roomT_to_goal': 'Running from Heated Environment'
             #'wind_test': 'Wind Disturbance'
             #'ice_test': 'Ice Disturbance'
+            #'touch_test': 'Ice Disturbance'
     for dataset in tests.keys():
         print dataset
         data = get_csv_data(dataset)
