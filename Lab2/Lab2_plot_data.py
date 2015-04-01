@@ -31,7 +31,7 @@ def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
     plt.plot(data1, data2, color_shape, label=label)
     plt.xlabel('Time (s)')
     plt.ylabel('Voltage (V)')
-    plt.title('Driving Motor with Constant DC Voltage (5V)')
+    plt.title('Driving Motor with Constant DC Voltage (10V)')
 
 
 # def plot_dataset(data, title):
@@ -52,7 +52,7 @@ def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
 
 
 def main():
-    tests = {'Part1_2_5V': 'Driving motor with constant DC voltage - 5V'}
+    tests = {'Part1_2_10V': 'Driving motor with constant DC voltage - 10V'}
             # 'Part1_1': 'Driving motor with constant DC voltage'
             # 'Part1_2_1': 'Driving with constant (DC) voltage - 1 V'
             # 'Part1_2_2': 'Driving with constant (DC) voltage - 1.5 V'
