@@ -22,15 +22,39 @@ def get_csv_data(filename):
     csv_data = [[float(row[0]), translate(float(row[1]), 0, 1024, 0, 5)] for row in csv_data]
     return csv_data
 
+def pot_math(data1, data2):
+    velocities = []
+    times = []
+    for i in range(len(data1)-1):
+        if abs(data2[i+1]-data2[i]) > 30:
+            pass 
+        else:
+            distance = ((data2[i+1]-data2[i])*5.0)/1024
+            time = (data1[i+1]-data1[i])/1000.0 
+            if time < 0.001:
+                pass
+            else: 
+                velocity = distance/time
+                if velocity > 0.1:
+                    pass
+                elif velocity < -0.1:
+                    pass
+                else:
+                    velocities.append(velocity)
+                    times.append(data1[i])
+    N = 15
+    velocities = np.convolve(velocities, np.ones((N,))/N, mode='valid')
+    return times[:len(velocities)], velocities
 
 def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
     data1 = [d[channel] for d in data]
     data2 = [d[channel2] for d in data]
+    data1,data2 = pot_math(data1,data2)
     plt.figure()
     plt.plot(data1, data2, color_shape, label=label)
     plt.xlabel('Time (s)')
-    plt.ylabel('Voltage (V)')
-    plt.title('Driving Motor with Constant DC Voltage (10V)')
+    plt.ylabel('Velocity (V/s)')
+    plt.title('Driving motor with square wave (600mA)')
 
 # def plot_dataset(data, title):
 
@@ -51,7 +75,7 @@ def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
 
 
 def main():
-    tests = {'Part1_2_10V': 'Driving motor with constant DC voltage - 10V'}
+    tests = {'Part1_3_600mA': 'Driving motor with square wave (600mA)'}
             # 'Part1_1': 'Driving motor with constant DC voltage'
             # 'Part1_2_1': 'Driving with constant (DC) voltage - 1 V'
             # 'Part1_2_2': 'Driving with constant (DC) voltage - 1.5 V'
