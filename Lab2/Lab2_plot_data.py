@@ -26,15 +26,14 @@ def get_csv_data(filename):
 def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
     data1 = [d[channel] for d in data]
     data2 = [d[channel2] for d in data]
-    # for i in range(len(data)):
-    #     plt.plot( data1, data2, color_shape)
+    plt.figure()
     plt.plot(data1, data2, color_shape, label=label)
     plt.xlabel('Time (s)')
     plt.ylabel('Voltage (V)')
     plt.title('Driving Motor with Constant DC Voltage (10V)')
 
-
 # def plot_dataset(data, title):
+
 #     plt.figure()
 #     # plt.subplot(2,1,1)
 #     plot_channel(data, 'Voltage (V)', 0, 1, 'bo')
