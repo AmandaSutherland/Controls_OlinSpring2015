@@ -33,7 +33,6 @@ def plot_dataset(data, title):
     plt.figure()
     plt.subplot(2,1,1)
     plot_channel(data, 'Thermistor Temperature (C)', 0, 'bo')
-    plt.plot([0, 260], [40,40], 'r', label='Goal Temperature (40C)')
     plt.axis([0,250, 35,42])
     plt.legend(loc='lower center')
     plt.xlabel('Time (s)')
@@ -49,12 +48,27 @@ def plot_dataset(data, title):
 
 def main():
     tests = {'touch_test': 'Ice Disturbance'}
-            # 'test':'Test Data',
-            #'roomT_to_goal': 'Running from No Input'
-            #'above_roomT_to_goal': 'Running from Heated Environment'
-            #'wind_test': 'Wind Disturbance'
-            #'ice_test': 'Ice Disturbance'
-            #'touch_test': 'Ice Disturbance'
+            # 'Part1_1': 'Driving motor with constant DC voltage'
+            # 'Part1_2_1': 'Driving with constant (DC) voltage - 1 V'
+            # 'Part1_2_2': 'Driving with constant (DC) voltage - 1.5 V'
+            # 'Part1_2_3': 'Driving with constant (DC) voltage - 2 V'
+            # 'Part1_2_4': 'Driving with constant (DC) voltage - 2.5 V'
+            # 'Part1_2_5': 'Driving with constant (DC) voltage - 3 V'
+            # 'Part1_3_1': 'Driving motor with square wave - 0.15 A'
+            # 'Part1_3_2': 'Driving motor with square wave - 0.3 A'
+            # 'Part1_3_3': 'Driving motor with square wave - 0.45 A'
+            # 'Part1_3_4': 'Driving motor with square wave - 0.6 A'
+            # 'Part1_3_5': 'Driving motor with square wave - 0.75 A'
+            # 'Part2_1_1': 'Driving motor with slow square wave - 1 V'
+            # 'Part2_1_2': 'Driving motor with slow square wave - 1.5 V'
+            # 'Part2_1_3': 'Driving motor with slow square wave - 2 V'
+            # 'Part2_1_4': 'Driving motor with slow square wave - 2.5 V'
+            # 'Part2_1_5': 'Driving motor with slow square wave - 3 V'
+            # 'Part3_3_1': 'Driving motor with square wave - 0.15 A'
+            # 'Part3_3_2': 'Driving motor with square wave - 0.3 A'
+            # 'Part3_3_3': 'Driving motor with square wave - 0.45 A'
+            # 'Part3_3_4': 'Driving motor with square wave - 0.6 A'
+            # 'Part3_3_5': 'Driving motor with square wave - 0.75 A'
     for dataset in tests.keys():
         print dataset
         data = get_csv_data(dataset)
