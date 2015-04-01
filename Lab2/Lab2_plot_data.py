@@ -53,8 +53,8 @@ def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
     plt.figure()
     plt.plot(data1, data2, color_shape, label=label)
     plt.xlabel('Time (s)')
-    plt.ylabel('Velocity (V/s)')
-    plt.title('Driving motor with square wave (600mA)')
+    plt.ylabel('Volts (V)')
+    plt.title('Driving motor with square wave (5.5V)')
 
 # def plot_dataset(data, title):
 
@@ -75,7 +75,7 @@ def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
 
 
 def main():
-    tests = {'Part3_3_9V': 'Driving motor with square wave (600mA)'}
+    tests = {'Part3_3_55V': 'Driving motor with square wave (5.5V)'}
             # 'Part1_1': 'Driving motor with constant DC voltage'
             # 'Part1_2_1': 'Driving with constant (DC) voltage - 1 V'
             # 'Part1_2_2': 'Driving with constant (DC) voltage - 1.5 V'
