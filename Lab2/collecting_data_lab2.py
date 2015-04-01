@@ -10,7 +10,7 @@ file_ = open('data/Part1_2_10V.csv', 'w')
 wait = time.time() + 3
 while time.time() < wait:
     pass
-stop = time.time() + 3
+stop = time.time() + 10
 while time.time() < stop:
 	a = data.readline()
 	file_.write(a)
