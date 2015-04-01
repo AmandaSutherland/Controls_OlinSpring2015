@@ -6,11 +6,11 @@ if platform.system() == 'Linux':
 elif platform.system() == 'Darwin':
     data = serial.Serial('/dev/tty.usbmodem1451')
 
-file_ = open('data/Part2_3_600mA.csv', 'w')
+file_ = open('data/Part2_3_200mA.csv', 'w')
 wait = time.time() + 3
 while time.time() < wait:
     pass
-stop = time.time() + 10
+stop = time.time() + 1
 while time.time() < stop:
 	a = data.readline()
 	file_.write(a)
