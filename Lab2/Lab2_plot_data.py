@@ -75,7 +75,7 @@ def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
 
 
 def main():
-    tests = {'Part2_3_600mA': 'Driving motor with square wave (600mA)'}
+    tests = {'Part3_3_9V': 'Driving motor with square wave (600mA)'}
             # 'Part1_1': 'Driving motor with constant DC voltage'
             # 'Part1_2_1': 'Driving with constant (DC) voltage - 1 V'
             # 'Part1_2_2': 'Driving with constant (DC) voltage - 1.5 V'
