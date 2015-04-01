@@ -35,14 +35,14 @@ def pot_math(data1, data2):
                 pass
             else: 
                 velocity = distance/time
-                if velocity > 0.1:
+                if velocity > 0.05:
                     pass
-                elif velocity < -0.1:
+                elif velocity < -0.05:
                     pass
                 else:
                     velocities.append(velocity)
                     times.append(data1[i])
-    N = 15
+    N = 20
     velocities = np.convolve(velocities, np.ones((N,))/N, mode='valid')
     return times[:len(velocities)], velocities
 
@@ -54,7 +54,7 @@ def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
     plt.plot(data1, data2, color_shape, label=label)
     plt.xlabel('Time (s)')
     plt.ylabel('Velocity (V/s)')
-    plt.title('Driving motor with square wave (600mA)')
+    plt.title('Driving motor with square wave (200mA)')
 
 # def plot_dataset(data, title):
 
@@ -75,7 +75,7 @@ def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
 
 
 def main():
-    tests = {'Part1_3_600mA': 'Driving motor with square wave (600mA)'}
+    tests = {'Part2_3_200mA': 'Driving motor with square wave (200mA)'}
             # 'Part1_1': 'Driving motor with constant DC voltage'
             # 'Part1_2_1': 'Driving with constant (DC) voltage - 1 V'
             # 'Part1_2_2': 'Driving with constant (DC) voltage - 1.5 V'
