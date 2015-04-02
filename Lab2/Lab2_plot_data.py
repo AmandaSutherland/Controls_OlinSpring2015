@@ -19,39 +19,35 @@ def get_csv_data(filename):
     with open('data/' + filename + '.csv', 'rb') as csvfile:
         datareader = csv.reader(csvfile, delimiter=',')
         csv_data = [row for row in datareader]
-    csv_data = [[float(row[0]), translate(float(row[2]), 0, 1024, 0, 5)] for row in csv_data]
+    csv_data = [[float(row[0]), translate(float(row[2]), 0, 1024, 0, 5), float(row[3])] for row in csv_data]
     return csv_data
 
+def current_math(data1, data2, data3):
+    Vd = 5 
+    Vm = data2
+    R = 15
+    currents = []
+    for i in range(len(data2)):
+        Vm_i = 3.75
+        average_current = ((Vd - Vm_i)/R)
+        current = ((Vd - Vm[i])/R)
+        switched_current = (data3[i]*(current-average_current)) + average_current 
+        currents.append(switched_current)
+    return data1, currents
 
-def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
+def plot_channel(data, label, channel=0, channel2=1, channel3=2, color_shape='b-'):
     data1 = [d[channel] for d in data]
     data2 = [d[channel2] for d in data]
+    data3 = [d[channel3] for d in data]
+    data1,data3 = current_math(data1,data2,data3)
     plt.figure()
-    plt.plot(data1, data2, color_shape, label=label)
+    plt.plot(data1, data3, color_shape, label=label)
     plt.xlabel('Time (s)')
-    plt.ylabel('Voltage (V)')
-    plt.title('Driving Motor with Constant DC Voltage (5V)')
-
-# def plot_dataset(data, title):
-
-#     plt.figure()
-#     # plt.subplot(2,1,1)
-#     plot_channel(data, 'Voltage (V)', 0, 1, 'bo')
-#     # plt.axis([0,250, 35,42])
-#     plt.legend(loc='lower center')
-#     plt.xlabel('Time (s)')
-#     plt.ylabel('Voltage (V)')
-#     plt.title(title)
-
-    # plt.subplot(2,1,2)
-    # plot_channel(data, 'Output Voltage of Controller', 1, 'go')
-    # plt.xlabel('Time (s)')
-    # plt.ylabel('Voltage (V)')
-    # plt.legend(loc=0)
-
+    plt.ylabel('Current (amps)')
+    plt.title('Driving Motor with Constant DC Voltage (8V)')
 
 def main():
-    tests = {'Part2_1_8V': 'Driving motor with constant DC voltage - 5V'}
+    tests = {'Part2_1_8V': 'Driving motor with constant DC voltage - 8V'}
             # 'Part1_1': 'Driving motor with constant DC voltage'
             # 'Part1_2_1': 'Driving with constant (DC) voltage - 1 V'
             # 'Part1_2_2': 'Driving with constant (DC) voltage - 1.5 V'

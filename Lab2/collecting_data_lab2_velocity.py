@@ -35,9 +35,9 @@ def pot_math(data1, data2):
                 pass
             else: 
                 velocity = distance/time
-                if velocity > 0.5:
+                if velocity > 0.1:
                     pass
-                elif velocity < -0.5:
+                elif velocity < -0.1:
                     pass
                 else:
                     velocities.append(velocity)
@@ -53,29 +53,11 @@ def plot_channel(data, label, channel=0, channel2=1, color_shape='b-'):
     plt.figure()
     plt.plot(data1, data2, color_shape, label=label)
     plt.xlabel('Time (s)')
-    plt.ylabel('Volts (V)')
-    plt.title('Driving motor with square wave (10V)')
-
-# def plot_dataset(data, title):
-
-#     plt.figure()
-#     # plt.subplot(2,1,1)
-#     plot_channel(data, 'Voltage (V)', 0, 1, 'bo')
-#     # plt.axis([0,250, 35,42])
-#     plt.legend(loc='lower center')
-#     plt.xlabel('Time (s)')
-#     plt.ylabel('Voltage (V)')
-#     plt.title(title)
-
-    # plt.subplot(2,1,2)
-    # plot_channel(data, 'Output Voltage of Controller', 1, 'go')
-    # plt.xlabel('Time (s)')
-    # plt.ylabel('Voltage (V)')
-    # plt.legend(loc=0)
-
+    plt.ylabel('Velocity (V)')
+    plt.title('Driving motor with square wave (8V)')
 
 def main():
-    tests = {'Part3_3_10V': 'Driving motor with square wave (10V)'}
+    tests = {'Part2_1_8V': 'Driving motor with square wave (8V)'}
             # 'Part1_1': 'Driving motor with constant DC voltage'
             # 'Part1_2_1': 'Driving with constant (DC) voltage - 1 V'
             # 'Part1_2_2': 'Driving with constant (DC) voltage - 1.5 V'
